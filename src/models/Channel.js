@@ -19,7 +19,7 @@ const ChannelSchema = new mongoose.Schema({
 		enum: ["classic", "inquisitor"],
 		default: "classic"
 	},
-	deck: {
+	court: {
 		// Remaining cards in the deck
 		type: Number,
 		required: true,

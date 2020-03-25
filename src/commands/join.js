@@ -11,19 +11,19 @@ module.exports = async receivedMessage => {
 			players: [{ discord_id: author.id, discord_avatar: author.avatar }]
 		});
 
-		return channel.send("You joined the game!");
+		return channel.send("You joined the match!");
 	}
 
 	const alreadyIn = game.players.some(p => p.discord_id === author.id);
 	if (!alreadyIn) {
 		game.players = [
 			...game.players,
-			{ discord_id: author.id, discord_avatar: author.avatar }
+			{ discord_id: author.id, discord_author: author }
 		];
 
 		game.save();
 
-		return channel.send("You joined the game!");
+		return channel.send("You joined the match!");
 	}
 
 	channel.send("You are already in the match!");

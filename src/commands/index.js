@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 
 helpFunction = receivedMessage => {
-	console.log(receivedMessage.author);
 	const embed = new Discord.MessageEmbed()
 		.setColor("#8BC34A")
 		.setTitle("Command list:")
@@ -37,10 +36,7 @@ const commands = {
 	},
 	"[list]": {
 		description: "List all players in the match",
-		exec: receivedMessage =>
-			receivedMessage.channel.send(
-				`Okay ${receivedMessage.author}, I heard you, so stop!`
-			)
+		exec: require("./list")
 	},
 	"[mode]": {
 		description: "Select the game mode",
@@ -65,10 +61,7 @@ const commands = {
 	},
 	"[clear]": {
 		description: "Remove all players from the match",
-		exec: receivedMessage =>
-			receivedMessage.channel.send(
-				`Okay ${receivedMessage.author}, I heard you, so stop!`
-			)
+		exec: require("./clear")
 	}
 };
 
