@@ -9,6 +9,11 @@ const GuildSchema = new mongoose.Schema({
 	discord_name: {
 		type: String,
 		required: true
+	},
+	emojis: {
+		type: Boolean,
+		required: true,
+		default: false
 	}
 });
 

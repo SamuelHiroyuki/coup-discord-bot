@@ -18,6 +18,12 @@ client.on("guildCreate", guild => {
 		discord_id: guild.id,
 		discord_name: guild.name
 	});
+	// duke
+	// contessa
+	// captain
+	// assassin
+	// inquisitor
+	// ambassador
 });
 
 client.on("guildDelete", async guild => {
