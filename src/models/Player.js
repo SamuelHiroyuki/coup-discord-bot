@@ -5,7 +5,7 @@ const PlayerSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	discord_avatar: {
+	discord_author: {
 		type: String,
 		required: true
 	},
