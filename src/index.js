@@ -1,4 +1,6 @@
 require("dotenv").config();
+require("./database");
+
 const Discord = require("discord.js");
 const commands = require("./commands");
 
