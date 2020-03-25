@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 
 helpFunction = receivedMessage => {
+	console.log(receivedMessage.author);
 	const embed = new Discord.MessageEmbed()
 		.setColor("#8BC34A")
 		.setTitle("Command list:")
