@@ -32,10 +32,7 @@ const commands = {
 	},
 	"[leave]": {
 		description: "Leave the match",
-		exec: receivedMessage =>
-			receivedMessage.channel.send(
-				`Okay ${receivedMessage.author}, I heard you, so stop!`
-			)
+		exec: require("./leave")
 	},
 	"[list]": {
 		description: "List all players in the match",
