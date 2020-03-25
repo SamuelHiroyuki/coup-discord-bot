@@ -5,6 +5,10 @@ const PlayerSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
+	discord_avatar: {
+		type: String,
+		required: true
+	},
 	card1: {
 		type: Number,
 		required: true,
