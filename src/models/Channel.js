@@ -25,6 +25,11 @@ const ChannelSchema = new mongoose.Schema({
 		required: true,
 		default: 15
 	},
+	started: {
+		type: Boolean,
+		required: true,
+		default: false
+	},
 	players: {
 		type: [PlayerSchema],
 		required: true,

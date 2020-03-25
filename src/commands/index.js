@@ -54,10 +54,7 @@ const commands = {
 	},
 	"[board]": {
 		description: "Shows the match situation",
-		exec: receivedMessage =>
-			receivedMessage.channel.send(
-				`Okay ${receivedMessage.author}, I heard you, so stop!`
-			)
+		exec: require("./board")
 	},
 	"[clear]": {
 		description: "Remove all players from the match",
