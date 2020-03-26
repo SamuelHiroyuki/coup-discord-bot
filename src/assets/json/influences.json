@@ -1,0 +1,8 @@
+{
+	"duke": 1,
+	"contessa": 2,
+	"captain": 4,
+	"assassin": 8,
+	"ambassador": 16,
+	"inquisitor": 32
+}

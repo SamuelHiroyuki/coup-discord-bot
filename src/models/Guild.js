@@ -11,9 +11,9 @@ const GuildSchema = new mongoose.Schema({
 		required: true
 	},
 	emojis: {
-		type: Boolean,
+		type: Number,
 		required: true,
-		default: false
+		default: 0
 	}
 });
 
