@@ -4,6 +4,7 @@ require("./database");
 const Discord = require("discord.js");
 const commands = require("./commands");
 const Guild = require("./models/Guild");
+const addEmojis = require("./utils/addEmojis");
 
 const client = new Discord.Client();
 
@@ -13,17 +14,30 @@ client.on("ready", () => {
 	client.user.setActivity(" Coup");
 });
 
-client.on("guildCreate", guild => {
-	Guild.create({
+client.on("guildCreate", async guild => {
+	const guildDB = await Guild.create({
 		discord_id: guild.id,
 		discord_name: guild.name
 	});
-	// duke
-	// contessa
-	// captain
-	// assassin
-	// inquisitor
-	// ambassador
+
+	const emojisToAdd = calcEmoji(guildDB.emojis);
+	const response = await addEmojis(guild, emojisToAdd);
+
+	if (response.permissionError) {
+		channel.send(
+			`Hello ${author}, I need permission to add emojis to ${guild}. This will give the game a better experience.\rTo manually add these emojis, use the \`[configure]\` command.`
+		);
+	}
+
+	if (response.addedEmojis) {
+		guildDB.emojis += response.addedEmojis;
+		guildDB.save();
+		channel.send(`Added emojis to ${guild}.`);
+	}
+
+	response.failedEmojis.forEach(i =>
+		channel.send(`${author}, I could not add emojis \`${i}\` to ${guild}.`)
+	);
 });
 
 client.on("guildDelete", async guild => {

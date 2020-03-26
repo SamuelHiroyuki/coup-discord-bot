@@ -59,6 +59,10 @@ const commands = {
 	"[clear]": {
 		description: "Remove all players from the match",
 		exec: require("./clear")
+	},
+	"[configure]": {
+		description: "Checks whether the server has the emojis and adds them.",
+		exec: require("./configure")
 	}
 };
 
