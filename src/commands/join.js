@@ -18,6 +18,12 @@ module.exports = async receivedMessage => {
 		return channel.send("Sorry, the match has started.");
 	}
 
+	if (game.players.length > 25) {
+		return channel.send(
+			`Sorry ${author}, but we have reached the maximum number of players in a match.`
+		);
+	}
+
 	const alreadyIn = game.players.some(p => p.discord_id === author.id);
 	if (!alreadyIn) {
 		game.players = [

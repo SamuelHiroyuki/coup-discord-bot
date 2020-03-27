@@ -1,4 +1,8 @@
 {
+	"additionalCards": {
+		"classic": ["assassin", "ambassador", "contessa", "captain", "duke"],
+		"inquisitor": ["captain", "contessa", "inquisitor", "assassin", "duke"]
+	},
 	"classic": [
 		"captain",
 		"contessa",
