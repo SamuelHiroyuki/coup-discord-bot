@@ -1,0 +1,36 @@
+{
+	"classic": [
+		"captain",
+		"contessa",
+		"assassin",
+		"ambassador",
+		"assassin",
+		"ambassador",
+		"captain",
+		"assassin",
+		"contessa",
+		"ambassador",
+		"contessa",
+		"duke",
+		"duke",
+		"captain",
+		"duke"
+	],
+	"inquisitor": [
+		"captain",
+		"assassin",
+		"assassin",
+		"inquisitor",
+		"contessa",
+		"inquisitor",
+		"duke",
+		"captain",
+		"contessa",
+		"contessa",
+		"duke",
+		"inquisitor",
+		"assassin",
+		"captain",
+		"duke"
+	]
+}

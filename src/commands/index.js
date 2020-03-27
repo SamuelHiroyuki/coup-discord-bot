@@ -47,10 +47,7 @@ const commands = {
 	},
 	"[start]": {
 		description: "Start the game",
-		exec: receivedMessage =>
-			receivedMessage.channel.send(
-				`Okay ${receivedMessage.author}, I heard you, so stop!`
-			)
+		exec: require("./start")
 	},
 	"[board]": {
 		description: "Shows the match situation",

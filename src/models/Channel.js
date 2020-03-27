@@ -21,9 +21,25 @@ const ChannelSchema = new mongoose.Schema({
 	},
 	court: {
 		// Remaining cards in the deck
-		type: Number,
+		type: [String],
 		required: true,
-		default: 15
+		default: [
+			"duke",
+			"contessa",
+			"captain",
+			"assassin",
+			"ambassador",
+			"duke",
+			"contessa",
+			"captain",
+			"assassin",
+			"ambassador",
+			"duke",
+			"contessa",
+			"captain",
+			"assassin",
+			"ambassador"
+		]
 	},
 	started: {
 		type: Boolean,
