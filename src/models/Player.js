@@ -10,19 +10,24 @@ const PlayerSchema = new mongoose.Schema({
 		required: true
 	},
 	card1: {
-		type: Number,
+		type: String,
 		required: true,
-		default: 0
+		default: "none"
 	},
 	card2: {
-		type: Number,
+		type: String,
 		required: true,
-		default: 0
+		default: "none"
 	},
 	coins: {
 		type: Number,
 		required: true,
 		default: 2
+	},
+	toRemove: {
+		type: Boolean,
+		required: true,
+		default: false
 	}
 });
 

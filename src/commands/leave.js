@@ -6,7 +6,7 @@ module.exports = async receivedMessage => {
 	const game = await Channel.findOne({ discord_id: channel.id });
 
 	if (!game) {
-		Channel.create({ discord_id: channel.id });
+		await Channel.create({ discord_id: channel.id });
 
 		return channel.send("You were no longer in the match.");
 	}
