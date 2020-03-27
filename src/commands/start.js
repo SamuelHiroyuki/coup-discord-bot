@@ -28,9 +28,20 @@ module.exports = async receivedMessage => {
 	// 	);
 	// }
 
+	let additionalCards = [];
+	if (game.players.length > 6 && game.players.length <= 8) {
+		additionalCards = courts.additionalCards[game.variant];
+	}
+
+	if (game.players.length >= 9) {
+		additionalCards = new Array(2)
+			.fill(courts.additionalCards[game.variant])
+			.flat();
+	}
+
 	game.started = true;
 	game.treasury = 54;
-	game.court = _.shuffle(courts[game.variant]);
+	game.court = _.shuffle([...courts[game.variant], ...additionalCards]);
 	game.players = _.shuffle(game.players);
 	game.players.forEach(p => {
 		p.coins = 2;
