@@ -7,7 +7,7 @@ const Guild = require("./models/Guild");
 
 const client = new Discord.Client();
 
-client.login(process.env.TOKEN);
+client.login(process.env.DISCORD_BOT_TOKEN);
 
 client.on("ready", () => {
 	client.user.setActivity(" Coup");
@@ -40,6 +40,6 @@ For a better gaming experience, you can run the command \`[emojis]\`.
 
 	if (content.startsWith("[") && content.endsWith("]")) {
 		const command = commands[content];
-		command && command.exec(receivedMessage);
+		command && command.exec(receivedMessage, client);
 	}
 });

@@ -6,7 +6,7 @@ module.exports = async receivedMessage => {
 	const game = await Channel.findOne({ discord_id: channel.id });
 
 	if (!game) {
-		Channel.create({
+		await Channel.create({
 			discord_id: channel.id,
 			players: [{ discord_id: author.id, discord_author: author }]
 		});
