@@ -4,7 +4,6 @@ require("./database");
 const Discord = require("discord.js");
 const commands = require("./commands");
 const Guild = require("./models/Guild");
-const addEmojis = require("./utils/addEmojis");
 
 const client = new Discord.Client();
 
@@ -15,37 +14,27 @@ client.on("ready", () => {
 });
 
 client.on("guildCreate", async guild => {
-	const guildDB = await Guild.create({
+	await Guild.create({
 		discord_id: guild.id,
 		discord_name: guild.name
 	});
-
-	const emojisToAdd = calcEmoji(guildDB.emojis);
-	const response = await addEmojis(guild, emojisToAdd);
-
-	if (response.permissionError) {
-		channel.send(
-			`Hello ${author}, I need permission to add emojis to ${guild}. This will give the game a better experience.\rTo manually add these emojis, use the \`[configure]\` command.`
-		);
-	}
-
-	if (response.addedEmojis) {
-		guildDB.emojis += response.addedEmojis;
-		guildDB.save();
-		channel.send(`Added emojis to ${guild}.`);
-	}
-
-	response.failedEmojis.forEach(i =>
-		channel.send(`${author}, I could not add emojis \`${i}\` to ${guild}.`)
-	);
 });
 
 client.on("guildDelete", async guild => {
 	await Guild.findOneAndRemove({ discord_id: guild.id });
 });
 
-client.on("message", receivedMessage => {
-	const { author, content } = receivedMessage;
+client.on("message", async receivedMessage => {
+	const { author, content, type, channel } = receivedMessage;
+
+	if (type === "GUILD_MEMBER_JOIN" && client.user === author) {
+		channel.send(
+			`Sup @here, to see all available commands, use \`[help]\`.
+To improve your gameplay, I recommend that you create my own text channel.
+For a better gaming experience, you can run the command \`[emojis]\`.
+			`
+		);
+	}
 
 	if (author.bot) return;
 

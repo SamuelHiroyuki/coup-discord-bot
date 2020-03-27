@@ -21,7 +21,7 @@ module.exports = async receivedMessage => {
 		if (response.addedEmojis) {
 			guildDB.emojis += response.addedEmojis;
 			guildDB.save();
-			channel.send(`Added emojis to ${guild}.`);
+			channel.send(`Emojis successfully added to ${guild}.`);
 		}
 
 		response.failedEmojis.forEach(i =>
