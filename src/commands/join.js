@@ -8,10 +8,14 @@ module.exports = async receivedMessage => {
 	if (!game) {
 		Channel.create({
 			discord_id: channel.id,
-			players: [{ discord_id: author.id, discord_avatar: author.avatar }]
+			players: [{ discord_id: author.id, discord_author: author }]
 		});
 
 		return channel.send("You joined the match!");
+	}
+
+	if (game.started) {
+		return channel.send("Sorry, the match has started.");
 	}
 
 	const alreadyIn = game.players.some(p => p.discord_id === author.id);
