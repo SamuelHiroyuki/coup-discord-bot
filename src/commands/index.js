@@ -60,9 +60,9 @@ const commands = {
 		description: "Remove all players from the match",
 		exec: require("./clear")
 	},
-	"[configure]": {
+	"[emojis]": {
 		description: "Checks whether the server has the emojis and adds them.",
-		exec: require("./configure")
+		exec: require("./emojis")
 	}
 };
 
