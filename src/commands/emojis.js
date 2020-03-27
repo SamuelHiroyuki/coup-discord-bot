@@ -1,3 +1,4 @@
+const _ = require("lodash");
 const Guild = require("../models/Guild");
 const addEmojis = require("../utils/addEmojis");
 const calcEmoji = require("../utils/calcEmoji");
@@ -8,7 +9,7 @@ module.exports = async receivedMessage => {
 
 	const guildDB = await Guild.findOne({ discord_id: guild.id });
 
-	if (Object.values(influences).reduce((a, b) => a + b, 0) > guildDB.emojis) {
+	if (_.sum(Object.values(influences)) > guildDB.emojis) {
 		const emojisToAdd = calcEmoji(guildDB.emojis);
 		const response = await addEmojis(guild, emojisToAdd);
 

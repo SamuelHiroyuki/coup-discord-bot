@@ -32,9 +32,9 @@ module.exports = async (guild, emojisToAdd) => {
 		);
 
 		return responses.reduce(
-			(ac, r, index) => {
+			(ac, r) => {
 				if (r.id) {
-					ac.addedEmojis += infValues[index];
+					ac.addedEmojis += influences[r.name.replace("_CoupBot", "")];
 				} else {
 					ac.failedEmojis.push(r);
 				}

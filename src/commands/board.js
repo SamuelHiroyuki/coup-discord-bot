@@ -18,23 +18,23 @@ module.exports = async receivedMessage => {
 		return channel.send("The match has not started yet.");
 	}
 
-	const embed = new Discord.MessageEmbed()
-		.setColor("#FAA61A")
-		.setTitle("List of players:")
-		.addFields(
-			{
-				name: "Players:",
-				value: Object.keys(commands).join("\n"),
-				inline: true
-			},
-			{
-				name: "Influences:",
-				value: Object.keys(commands)
-					.map(c => commands[c].description)
-					.join("\n"),
-				inline: true
-			}
-		);
+	// const embed = new Discord.MessageEmbed()
+	// 	.setColor("#FAA61A")
+	// 	.setTitle("List of players:")
+	// 	.addFields(
+	// 		{
+	// 			name: "Players:",
+	// 			value: Object.keys(commands).join("\n"),
+	// 			inline: true
+	// 		},
+	// 		{
+	// 			name: "Influences:",
+	// 			value: Object.keys(commands)
+	// 				.map(c => commands[c].description)
+	// 				.join("\n"),
+	// 			inline: true
+	// 		}
+	// 	);
 
-	channel.send(embed);
+	// channel.send(embed);
 };
