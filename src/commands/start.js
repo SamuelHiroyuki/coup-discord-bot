@@ -52,17 +52,11 @@ module.exports = async receivedMessage => {
 		);
 
 		try {
-			// user.send(
-			// 	`Hey ${user}, keep calm and get ready! Below are their influences:`
-			// );
-			// user.send(pmInfluence(p.card1, 1));
-			// user.send(pmInfluence(p.card2, 2));
-			user.send(pmInfluence("duke", 2));
-			user.send(pmInfluence("contessa", 2));
-			user.send(pmInfluence("captain", 2));
-			user.send(pmInfluence("assassin", 2));
-			user.send(pmInfluence("ambassador", 2));
-			user.send(pmInfluence("inquisitor", 2));
+			user.send(
+				`Hey ${user}, keep calm and get ready! Below are their influences:`
+			);
+			user.send(pmInfluence(p.card1, 1));
+			user.send(pmInfluence(p.card2, 2));
 		} catch (error) {
 			console.log(error);
 			p.toRemove = true;
