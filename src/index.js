@@ -10,7 +10,7 @@ const client = new Discord.Client();
 client.login(process.env.DISCORD_BOT_TOKEN);
 
 client.on("ready", () => {
-	client.user.setActivity(" Coup");
+	client.user.setActivity(` Coup on ${client.guilds.cache.size} servers`);
 });
 
 client.on("guildCreate", async guild => {
@@ -18,10 +18,12 @@ client.on("guildCreate", async guild => {
 		discord_id: guild.id,
 		discord_name: guild.name
 	});
+	client.user.setActivity(` Coup on ${client.guilds.cache.size} servers`);
 });
 
 client.on("guildDelete", async guild => {
 	await Guild.findOneAndRemove({ discord_id: guild.id });
+	client.user.setActivity(` Coup on ${client.guilds.cache.size} servers`);
 });
 
 client.on("message", async receivedMessage => {
