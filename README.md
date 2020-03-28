@@ -4,6 +4,7 @@
   <img src="src/assets/images/coup.png" width="130" height="130" />
 </p>
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/da1a113ea44a4d4b8d91c57f7c3fb927)](https://app.codacy.com/manual/SamuelHiroyuki/coup-discord-bot?utm_source=github.com&utm_medium=referral&utm_content=SamuelHiroyuki/coup-discord-bot&utm_campaign=Badge_Grade_Settings)
 [![Discord](https://discordapp.com/api/guilds/692521354020520026/widget.png)](https://discord.gg/5dUCrH6)
 
 ## The game
