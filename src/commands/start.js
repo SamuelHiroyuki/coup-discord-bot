@@ -4,13 +4,13 @@ const pmInfluence = require('../utils/pmInfluence');
 const listBoard = require('../utils/listBoard');
 const courts = require('../assets/json/courts.json');
 
-module.exports = async receivedMessage => {
-	const { channel, guild } = receivedMessage;
+module.exports = async ({ channel, guild }) => {
 	const game = await Channel.findOne({ discord_id: channel.id });
 
 	if (!game) {
 		await Channel.create({
 			discord_id: channel.id,
+			guild_id: guild.id,
 			players: [],
 		});
 
@@ -54,7 +54,7 @@ module.exports = async receivedMessage => {
 
 		try {
 			user.send(
-				`Hey ${user}, keep calm and get ready! Below are their influences:`
+				`Hey ${user}, below are your influences from the match at '${channel.name} (${guild.name})'. Keep calm and get ready!`
 			);
 			user.send(pmInfluence(p.card1, 1));
 			user.send(pmInfluence(p.card2, 2));

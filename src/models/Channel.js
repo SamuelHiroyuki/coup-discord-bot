@@ -7,6 +7,10 @@ const ChannelSchema = new mongoose.Schema({
 		required: true,
 		unique: true,
 	},
+	guild_id: {
+		type: String,
+		required: true,
+	},
 	treasury: {
 		// Amount of coins in the treasure
 		type: Number,

@@ -1,12 +1,10 @@
 const Channel = require('../models/Channel');
 
-module.exports = async receivedMessage => {
-	const { channel, author } = receivedMessage;
-
+module.exports = async ({ channel, author, guild }) => {
 	const game = await Channel.findOne({ discord_id: channel.id });
 
 	if (!game) {
-		await Channel.create({ discord_id: channel.id });
+		await Channel.create({ discord_id: channel.id, guild_id: guild.id });
 
 		return channel.send('There are no players in the match.');
 	}

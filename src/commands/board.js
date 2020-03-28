@@ -1,13 +1,13 @@
 const Channel = require('../models/Channel');
 const listBoard = require('../utils/listBoard');
 
-module.exports = async receivedMessage => {
-	const { channel } = receivedMessage;
+module.exports = async ({ channel, guild }) => {
 	const game = await Channel.findOne({ discord_id: channel.id });
 
 	if (!game) {
 		await Channel.create({
 			discord_id: channel.id,
+			guild_id: guild.id,
 			players: [],
 		});
 
