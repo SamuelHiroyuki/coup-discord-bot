@@ -5,6 +5,7 @@
 </p>
 
 [![Discord](https://discordapp.com/api/guilds/692521354020520026/widget.png)](https://discord.gg/5dUCrH6)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8c0125508ebb42078891fc2414de6284)](https://www.codacy.com/manual/SamuelHiroyuki/coup-discord-bot?utm_source=github.com&utm_medium=referral&utm_content=SamuelHiroyuki/coup-discord-bot&utm_campaign=Badge_Grade)
 
 ## The game
 
