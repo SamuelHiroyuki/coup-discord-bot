@@ -76,7 +76,7 @@ Exchange
 			embed
 				.setDescription(
 					`\`\`\`html
-< Exchange >             < Inquire >
+< Exchange >             < Examine >
 \`\`\``
 				)
 				.addFields(
