@@ -4,8 +4,7 @@
   <img src="src/assets/images/coup.png" width="130" height="130" />
 </p>
 
-[![Discord](https://discordapp.com/api/guilds/692521354020520026/widget.png)](https://discord.gg/5dUCrH6)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8c0125508ebb42078891fc2414de6284)](https://www.codacy.com/manual/SamuelHiroyuki/coup-discord-bot?utm_source=github.com&utm_medium=referral&utm_content=SamuelHiroyuki/coup-discord-bot&utm_campaign=Badge_Grade)
+[![Version](https://badge.fury.io/gh/tterb%2FHyde.svg)](https://badge.fury.io/gh/tterb%2FHyde) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8c0125508ebb42078891fc2414de6284)](https://www.codacy.com/manual/SamuelHiroyuki/coup-discord-bot?utm_source=github.com&utm_medium=referral&utm_content=SamuelHiroyuki/coup-discord-bot&utm_campaign=Badge_Grade) [![Discord](https://discordapp.com/api/guilds/692521354020520026/widget.png)](https://discord.gg/5dUCrH6) [![PayPal](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=WGDWBWMKEV432&currency_code=USD&source=url)
 
 ## The game
 
