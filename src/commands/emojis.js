@@ -1,8 +1,8 @@
-const _ = require("lodash");
-const Guild = require("../models/Guild");
-const addEmojis = require("../utils/addEmojis");
-const calcEmoji = require("../utils/calcEmoji");
-const influences = require("../assets/json/influences.json");
+const _ = require('lodash');
+const Guild = require('../models/Guild');
+const addEmojis = require('../utils/addEmojis');
+const calcEmoji = require('../utils/calcEmoji');
+const influences = require('../assets/json/influences.json');
 
 module.exports = async receivedMessage => {
 	const { channel, author, guild } = receivedMessage;
@@ -26,9 +26,11 @@ module.exports = async receivedMessage => {
 		}
 
 		response.failedEmojis.forEach(i =>
-			channel.send(`${author}, I could not add emojis \`${i}\` to ${guild}.`)
+			channel.send(
+				`${author}, I could not add emojis \`${i}\` to ${guild}.`
+			)
 		);
 	} else {
-		channel.send("All emojis are already configured!");
+		channel.send('All emojis are already configured!');
 	}
 };

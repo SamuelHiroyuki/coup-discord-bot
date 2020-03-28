@@ -1,8 +1,8 @@
-const path = require("path");
-const influences = require("../assets/json/influences.json");
+const path = require('path');
+const influences = require('../assets/json/influences.json');
 
 module.exports = async (guild, emojisToAdd) => {
-	if (guild.me.permissions.has(["MANAGE_EMOJIS"])) {
+	if (guild.me.permissions.has(['MANAGE_EMOJIS'])) {
 		const infKeys = Object.keys(influences);
 		const infValues = Object.values(influences);
 
@@ -19,13 +19,13 @@ module.exports = async (guild, emojisToAdd) => {
 					.create(
 						path.resolve(
 							__dirname,
-							"..",
-							"assets",
-							"images",
+							'..',
+							'assets',
+							'images',
 							`${infKeys[i]}.png`
 						),
 						`${infKeys[i]}_CoupBot`,
-						{ reason: "Added by Golpinho - CoupBot" }
+						{ reason: 'Added by Golpinho - CoupBot' }
 					)
 					.catch(() => infKeys[i])
 			)
@@ -34,7 +34,8 @@ module.exports = async (guild, emojisToAdd) => {
 		return responses.reduce(
 			(ac, r) => {
 				if (r.id) {
-					ac.addedEmojis += influences[r.name.replace("_CoupBot", "")];
+					ac.addedEmojis +=
+						influences[r.name.replace('_CoupBot', '')];
 				} else {
 					ac.failedEmojis.push(r);
 				}

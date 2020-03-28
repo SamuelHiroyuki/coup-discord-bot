@@ -1,5 +1,5 @@
-const Channel = require("../models/Channel");
-const listBoard = require("../utils/listBoard");
+const Channel = require('../models/Channel');
+const listBoard = require('../utils/listBoard');
 
 module.exports = async receivedMessage => {
 	const { channel } = receivedMessage;
@@ -8,14 +8,14 @@ module.exports = async receivedMessage => {
 	if (!game) {
 		await Channel.create({
 			discord_id: channel.id,
-			players: []
+			players: [],
 		});
 
-		return channel.send("The match has not started yet.");
+		return channel.send('The match has not started yet.');
 	}
 
 	if (!game.started) {
-		return channel.send("The match has not started yet.");
+		return channel.send('The match has not started yet.');
 	}
 
 	const embed = listBoard(game.players);

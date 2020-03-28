@@ -1,6 +1,6 @@
-const Discord = require("discord.js");
-const Channel = require("../models/Channel");
-const listBoard = require("../utils/listBoard");
+const Discord = require('discord.js');
+const Channel = require('../models/Channel');
+const listBoard = require('../utils/listBoard');
 
 module.exports = async receivedMessage => {
 	const { channel } = receivedMessage;
@@ -9,27 +9,27 @@ module.exports = async receivedMessage => {
 	if (!game) {
 		await Channel.create({
 			discord_id: channel.id,
-			players: []
+			players: [],
 		});
 
-		return channel.send("There are no players in the match.");
+		return channel.send('There are no players in the match.');
 	}
 
 	if (!game.players.length) {
-		return channel.send("There are no players in the match.");
+		return channel.send('There are no players in the match.');
 	}
 
 	const embed = game.started
 		? listBoard(game.players)
 		: new Discord.MessageEmbed()
-				.setTitle("List of players:")
+				.setTitle('List of players:')
 				.addField(
-					"-----------------------------------------------",
-					"\u200B\n" +
-						game.players.map(g => g.discord_author).join("\n") +
-						"\n\u200B",
+					'-----------------------------------------------',
+					`\u200B\n${game.players
+						.map(g => g.discord_author)
+						.join('\n')}\n\u200B`,
 					true
 				);
 
-	channel.send(embed);
+	return channel.send(embed);
 };

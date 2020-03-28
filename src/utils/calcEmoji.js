@@ -1,5 +1,5 @@
-const _ = require("lodash");
-const influences = require("../assets/json/influences.json");
+const _ = require('lodash');
+const influences = require('../assets/json/influences.json');
 
 module.exports = emojis => {
 	const values = Object.values(influences);

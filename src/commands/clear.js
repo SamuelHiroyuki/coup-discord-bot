@@ -1,4 +1,4 @@
-const Channel = require("../models/Channel");
+const Channel = require('../models/Channel');
 
 module.exports = async receivedMessage => {
 	const { channel, author } = receivedMessage;
@@ -8,14 +8,14 @@ module.exports = async receivedMessage => {
 	if (!game) {
 		await Channel.create({ discord_id: channel.id });
 
-		return channel.send("There are no players in the match.");
+		return channel.send('There are no players in the match.');
 	}
 
 	if (!game.players.length) {
-		return channel.send("There are no players in the match.");
+		return channel.send('There are no players in the match.');
 	}
 
 	game.players = [];
 	game.save();
-	channel.send(`${author} removed all players from the match!`);
+	return channel.send(`${author} removed all players from the match!`);
 };

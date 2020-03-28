@@ -1,8 +1,8 @@
-const _ = require("lodash");
-const Channel = require("../models/Channel");
-const pmInfluence = require("../utils/pmInfluence");
-const listBoard = require("../utils/listBoard");
-const courts = require("../assets/json/courts.json");
+const _ = require('lodash');
+const Channel = require('../models/Channel');
+const pmInfluence = require('../utils/pmInfluence');
+const listBoard = require('../utils/listBoard');
+const courts = require('../assets/json/courts.json');
 
 module.exports = async receivedMessage => {
 	const { channel, guild } = receivedMessage;
@@ -11,16 +11,16 @@ module.exports = async receivedMessage => {
 	if (!game) {
 		await Channel.create({
 			discord_id: channel.id,
-			players: []
+			players: [],
 		});
 
 		return channel.send(
-			"At least 3 players are required to start the game. Call more friends."
+			'At least 3 players are required to start the game. Call more friends.'
 		);
 	}
 
 	if (game.started) {
-		return channel.send("The match has already started.");
+		return channel.send('The match has already started.');
 	}
 
 	// if (game.players.length < 3) {
@@ -49,7 +49,7 @@ module.exports = async receivedMessage => {
 		p.card2 = game.court.splice(Math.random() * game.court.length, 1)[0];
 
 		const user = guild.members.cache.find(
-			u => u.id === p.discord_author.replace(/[^a-zA-Z0-9]/g, "")
+			u => u.id === p.discord_author.replace(/[^a-zA-Z0-9]/g, '')
 		);
 
 		try {
@@ -79,6 +79,6 @@ module.exports = async receivedMessage => {
 	const embed = listBoard(game.players);
 
 	game.save();
-	channel.send("The match has started! Prepare your lies and cries.");
+	channel.send('The match has started! Prepare your lies and cries.');
 	return channel.send(embed);
 };
