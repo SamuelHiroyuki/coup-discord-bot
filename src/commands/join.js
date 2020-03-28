@@ -1,4 +1,4 @@
-const Channel = require("../models/Channel");
+const Channel = require('../models/Channel');
 
 module.exports = async receivedMessage => {
 	const { channel, author } = receivedMessage;
@@ -8,14 +8,14 @@ module.exports = async receivedMessage => {
 	if (!game) {
 		await Channel.create({
 			discord_id: channel.id,
-			players: [{ discord_id: author.id, discord_author: author }]
+			players: [{ discord_id: author.id, discord_author: author }],
 		});
 
-		return channel.send("You joined the match!");
+		return channel.send('You joined the match!');
 	}
 
 	if (game.started) {
-		return channel.send("Sorry, the match has started.");
+		return channel.send('Sorry, the match has started.');
 	}
 
 	if (game.players.length > 25) {
@@ -28,13 +28,13 @@ module.exports = async receivedMessage => {
 	if (!alreadyIn) {
 		game.players = [
 			...game.players,
-			{ discord_id: author.id, discord_author: author }
+			{ discord_id: author.id, discord_author: author },
 		];
 
 		game.save();
 
-		return channel.send("You joined the match!");
+		return channel.send('You joined the match!');
 	}
 
-	channel.send("You are already in the match!");
+	return channel.send('You are already in the match!');
 };
