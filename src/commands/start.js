@@ -1,6 +1,7 @@
 const _ = require("lodash");
 const Channel = require("../models/Channel");
 const pmInfluence = require("../utils/pmInfluence");
+const listBoard = require("../utils/listBoard");
 const courts = require("../assets/json/courts.json");
 
 module.exports = async receivedMessage => {
@@ -75,6 +76,9 @@ module.exports = async receivedMessage => {
 	// 	);
 	// }
 
+	const embed = listBoard(game.players);
+
 	game.save();
-	return channel.send("The match has started! Prepare your lies and cries.");
+	channel.send("The match has started! Prepare your lies and cries.");
+	return channel.send(embed);
 };

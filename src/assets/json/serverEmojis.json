@@ -22,5 +22,13 @@
 	"inquisitor": {
 		"code": "<:692521354020520026:693135540366606406>",
 		"url": "https://cdn.discordapp.com/emojis/693135540366606406.png?v=1"
+	},
+	"card": {
+		"code": "<:692521354020520026:693284278494167149>",
+		"url": "https://cdn.discordapp.com/emojis/693284278494167149.png?v=1"
+	},
+	"coins": {
+		"code": "<:692521354020520026:693271271441694740>",
+		"url": "https://cdn.discordapp.com/emojis/693271271441694740.png?v=1"
 	}
 }

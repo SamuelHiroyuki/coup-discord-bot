@@ -1,5 +1,6 @@
-const Channel = require("../models/Channel");
 const Discord = require("discord.js");
+const Channel = require("../models/Channel");
+const listBoard = require("../utils/listBoard");
 
 module.exports = async receivedMessage => {
 	const { channel } = receivedMessage;
@@ -18,14 +19,17 @@ module.exports = async receivedMessage => {
 		return channel.send("There are no players in the match.");
 	}
 
-	const embed = new Discord.MessageEmbed()
-		.setColor("#FAA61A")
-		.setTitle("List of players:")
-		.addField(
-			"-----------------------------------------------",
-			game.players.map(g => g.discord_author).join("\n"),
-			true
-		);
+	const embed = game.started
+		? listBoard(game.players)
+		: new Discord.MessageEmbed()
+				.setTitle("List of players:")
+				.addField(
+					"-----------------------------------------------",
+					"\u200B\n" +
+						game.players.map(g => g.discord_author).join("\n") +
+						"\n\u200B",
+					true
+				);
 
 	channel.send(embed);
 };

@@ -1,5 +1,5 @@
 const Channel = require("../models/Channel");
-const Discord = require("discord.js");
+const listBoard = require("../utils/listBoard");
 
 module.exports = async receivedMessage => {
 	const { channel } = receivedMessage;
@@ -18,23 +18,7 @@ module.exports = async receivedMessage => {
 		return channel.send("The match has not started yet.");
 	}
 
-	// const embed = new Discord.MessageEmbed()
-	// 	.setColor("#FAA61A")
-	// 	.setTitle("List of players:")
-	// 	.addFields(
-	// 		{
-	// 			name: "Players:",
-	// 			value: Object.keys(commands).join("\n"),
-	// 			inline: true
-	// 		},
-	// 		{
-	// 			name: "Influences:",
-	// 			value: Object.keys(commands)
-	// 				.map(c => commands[c].description)
-	// 				.join("\n"),
-	// 			inline: true
-	// 		}
-	// 	);
+	const embed = listBoard(game.players);
 
-	// channel.send(embed);
+	return channel.send(embed);
 };
