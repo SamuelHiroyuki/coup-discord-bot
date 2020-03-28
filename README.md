@@ -1,18 +1,19 @@
-<h2 align="center">CoupBot (Golpinho)</h2>
 <br />
-<p align="center">
-  <img src="src/assets/images/coup.png" width="130" height="130" />
-</p>
 
-[![Version](https://badge.fury.io/gh/tterb%2FHyde.svg)](https://badge.fury.io/gh/tterb%2FHyde) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8c0125508ebb42078891fc2414de6284)](https://www.codacy.com/manual/SamuelHiroyuki/coup-discord-bot?utm_source=github.com&utm_medium=referral&utm_content=SamuelHiroyuki/coup-discord-bot&utm_campaign=Badge_Grade) [![Discord](https://discordapp.com/api/guilds/692521354020520026/widget.png)](https://discord.gg/5dUCrH6) [![PayPal](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=WGDWBWMKEV432&currency_code=USD&source=url)
+<img align="left" src="src/assets/images/coup.png" width="112" height="112">
 
-## The game
+# Golpinho (CoupBot)
+
+[![Version](https://badge.fury.io/gh/tterb%2FHyde.svg)](https://badge.fury.io/gh/tterb%2FHyde)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8c0125508ebb42078891fc2414de6284)](https://www.codacy.com/manual/SamuelHiroyuki/coup-discord-bot?utm_source=github.com&utm_medium=referral&utm_content=SamuelHiroyuki/coup-discord-bot&utm_campaign=Badge_Grade)
+[![Discord](https://discordapp.com/api/guilds/692521354020520026/widget.png)](https://discord.gg/5dUCrH6)
+[![PayPal](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=WGDWBWMKEV432&currency_code=USD&source=url)
+
+<h2>The game</h2>
 
 Coup was developed by Rikki Tahta in 2012. This is an adaptation of the Brazilian version, published by Mandala Jogos.
 
 > You are the head of a family in an Italian city-state run by a weak, corrupt and intriguing court. You are trying to control the city through manipulation, bluffing and bribery to come to power. Its aim is to destroy the influence of all other families, forcing them into exile. Only one family will survive...
-
-<br />
 
 ## Commands
 
@@ -31,16 +32,12 @@ All commands begin with the prefix `[` and end with the suffix `]`
 | `[rules]`  | Checks whether the server has the emojis and adds them. |
 | `[emojis]` | Checks whether the server has the emojis and adds them. |
 
-<br />
-
 ## Influences
 
 All the cards have an incredible design, keeping all the essence of the original game. Each character has a different design that allows easy identification of the most important points. Below are some examples:
 
 <img src="src/assets/images/cap-card.png" style="border-radius: 8px;" />
 <img src="src/assets/images/cont-card.png" style="border-radius: 8px;" />
-
-<br />
 
 ## Disclaimer
 
