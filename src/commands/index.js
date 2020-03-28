@@ -57,6 +57,13 @@ const commands = {
 		description: "Remove all players from the match",
 		exec: require("./clear")
 	},
+	"[rules]": {
+		description: "Checks whether the server has the emojis and adds them.",
+		exec: receivedMessage =>
+			receivedMessage.channel.send(
+				`Okay ${receivedMessage.author}, I heard you, so stop!`
+			)
+	},
 	"[emojis]": {
 		description: "Checks whether the server has the emojis and adds them.",
 		exec: require("./emojis")
