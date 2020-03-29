@@ -19,18 +19,18 @@ Coup was developed by Rikki Tahta in 2012. This is an adaptation of the Brazilia
 
 All commands begin with the prefix `[` and end with the suffix `]`
 
-|  Command   | Description                                             |
-| :--------: | ------------------------------------------------------- |
-|  `[help]`  | All available commands                                  |
-|  `[join]`  | Join the match                                          |
-| `[leave]`  | Leave the match                                         |
-|  `[list]`  | List all players in the match                           |
-|  `[mode]`  | Select the game mode                                    |
-| `[start]`  | Start the game                                          |
-| `[board]`  | Shows the match situation                               |
-| `[clear]`  | Remove all players from the match                       |
-| `[rules]`  | Checks whether the server has the emojis and adds them. |
-| `[emojis]` | Checks whether the server has the emojis and adds them. |
+|  Command   | Description                                                         |
+| :--------: | ------------------------------------------------------------------- |
+|  `[help]`  | List all available commands.                                        |
+|  `[join]`  | Join the match.                                                     |
+| `[leave]`  | Leave the match.                                                    |
+|  `[list]`  | List all players in the match. _(works like the `[board]` command)_ |
+|  `[mode]`  | Select the game mode.                                               |
+| `[start]`  | Start the game.                                                     |
+| `[board]`  | Shows the match situation.                                          |
+| `[clear]`  | Remove all players from the match.                                  |
+| `[rules]`  | List all game rules.                                                |
+| `[emojis]` | Checks whether the server has the emojis and adds them.             |
 
 ## Influences
 

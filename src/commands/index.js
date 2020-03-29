@@ -23,42 +23,43 @@ function helpFunction(receivedMessage) {
 
 const commands = {
 	'[help]': {
-		description: 'All available commands',
+		description: 'List all available commands.',
 		exec: helpFunction,
 	},
 	'[join]': {
-		description: 'Join the match',
+		description: 'Join the match.',
 		exec: require('./join'),
 	},
 	'[leave]': {
-		description: 'Leave the match',
+		description: 'Leave the match.',
 		exec: require('./leave'),
 	},
 	'[list]': {
-		description: 'List all players in the match',
+		description:
+			'List all players in the match (works like the `[board]` command).',
 		exec: require('./list'),
 	},
 	'[mode]': {
-		description: 'Select the game mode',
+		description: 'Select the game mode.',
 		exec: receivedMessage =>
 			receivedMessage.channel.send(
 				`Okay ${receivedMessage.author}, I heard you, so stop!`
 			),
 	},
 	'[start]': {
-		description: 'Start the game',
+		description: 'Start the game.',
 		exec: require('./start'),
 	},
 	'[board]': {
-		description: 'Shows the match situation',
+		description: 'Shows the match situation.',
 		exec: require('./board'),
 	},
 	'[clear]': {
-		description: 'Remove all players from the match',
+		description: 'Remove all players from the match.',
 		exec: require('./clear'),
 	},
 	'[rules]': {
-		description: 'Checks whether the server has the emojis and adds them.',
+		description: 'List all game rules.',
 		exec: receivedMessage =>
 			receivedMessage.channel.send(
 				`Okay ${receivedMessage.author}, I heard you, so stop!`
