@@ -14,7 +14,6 @@
 	},
 	"plugins": ["prettier"],
 	"rules": {
-		"prettier/prettier": ["error"],
 		"no-param-reassign": "off",
 		"no-console": "off",
 		"no-use-before-define": "off",
@@ -29,6 +28,12 @@
 		"impo": "off",
 		"no-unused-vars": ["warn", { "argsIgnorePattern": "next" }],
 		"prefer-destructuring": ["error", { "object": true, "array": false }],
-		"no-bitwise": "off"
+		"no-bitwise": "off",
+		"prettier/prettier": [
+			"error",
+			{
+				"endOfLine": "auto"
+			}
+		]
 	}
 }
