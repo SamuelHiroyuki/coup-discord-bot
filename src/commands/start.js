@@ -45,8 +45,20 @@ module.exports = async ({ channel, guild }) => {
 	game.players = _.shuffle(game.players);
 	game.players.forEach(p => {
 		p.coins = 2;
-		p.card1 = game.court.splice(Math.random() * game.court.length, 1)[0];
-		p.card2 = game.court.splice(Math.random() * game.court.length, 1)[0];
+		p.card1 = {
+			influence: game.court.splice(
+				Math.random() * game.court.length,
+				1
+			)[0],
+			isEliminated: false,
+		};
+		p.card2 = {
+			influence: game.court.splice(
+				Math.random() * game.court.length,
+				1
+			)[0],
+			isEliminated: false,
+		};
 
 		const user = guild.members.cache.find(
 			u => u.id === p.discord_author.replace(/[^a-zA-Z0-9]/g, '')
@@ -56,8 +68,8 @@ module.exports = async ({ channel, guild }) => {
 			user.send(
 				`Hey ${user}, below are your influences from the match at '${channel.name} (${guild.name})'. Keep calm and get ready!`
 			);
-			user.send(pmInfluence(p.card1, 1));
-			user.send(pmInfluence(p.card2, 2));
+			user.send(pmInfluence(p.card1.influence, 1));
+			user.send(pmInfluence(p.card2.influence, 2));
 		} catch (error) {
 			console.log(error);
 			p.toRemove = true;

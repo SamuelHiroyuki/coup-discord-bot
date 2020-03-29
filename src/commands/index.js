@@ -60,10 +60,7 @@ const commands = {
 	},
 	'[rules]': {
 		description: 'List all game rules.',
-		exec: receivedMessage =>
-			receivedMessage.channel.send(
-				`Okay ${receivedMessage.author}, I heard you, so stop!`
-			),
+		exec: require('./rules'),
 	},
 	'[emojis]': {
 		description: 'Checks whether the server has the emojis and adds them.',

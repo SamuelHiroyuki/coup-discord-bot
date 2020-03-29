@@ -14,6 +14,20 @@ module.exports = async ({ channel, author, guild }) => {
 		return channel.send('You were no longer in the match.');
 	}
 
+	if (game.started) {
+		const playerIndex = game.players.findIndex(
+			p => p.discord_id === author.id
+		);
+
+		game.players[playerIndex].toRemove = true;
+		game.players[playerIndex].coins = 0;
+		game.players[playerIndex].card1.isEliminated = true;
+		game.players[playerIndex].card2.isEliminated = true;
+		game.save();
+
+		return channel.send('You have been removed from the match!');
+	}
+
 	game.players = game.players.filter(p => p.discord_id !== author.id);
 	game.save();
 	return channel.send('You have been removed from the match!');

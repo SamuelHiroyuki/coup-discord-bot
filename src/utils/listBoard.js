@@ -9,7 +9,10 @@ module.exports = players => {
 			{
 				name: 'Play order:',
 				value: `${players
-					.map(g => g.discord_author)
+					.map(
+						g =>
+							`${g.discord_author} (${serverEmojis.coins.code}: ${g.coins})`
+					)
 					.join('\n')}\n\u200B`,
 				inline: true,
 			},
@@ -19,8 +22,8 @@ module.exports = players => {
 					.map(
 						g =>
 							`Card 1:  ${
-								g.card1 === 'eliminated'
-									? ':skull_crossbones:'
+								g.card1.isEliminated
+									? serverEmojis[g.card1.influence].code
 									: serverEmojis.card.code
 							}`
 					)
@@ -33,8 +36,8 @@ module.exports = players => {
 					.map(
 						g =>
 							`Card 2:  ${
-								g.card2 === 'eliminated'
-									? ':skull_crossbones:'
+								g.card2.isEliminated
+									? serverEmojis[g.card2.influence].code
 									: serverEmojis.card.code
 							}`
 					)

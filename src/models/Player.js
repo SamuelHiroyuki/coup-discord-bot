@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Card = require('./Card');
 
 const PlayerSchema = new mongoose.Schema({
 	discord_id: {
@@ -10,14 +11,20 @@ const PlayerSchema = new mongoose.Schema({
 		required: true,
 	},
 	card1: {
-		type: String,
+		type: Card,
 		required: true,
-		default: 'none',
+		default: {
+			influence: 'none',
+			isEliminated: false,
+		},
 	},
 	card2: {
-		type: String,
+		type: Card,
 		required: true,
-		default: 'none',
+		default: {
+			influence: 'none',
+			isEliminated: false,
+		},
 	},
 	coins: {
 		type: Number,
