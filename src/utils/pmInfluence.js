@@ -18,9 +18,19 @@ module.exports = (influence, cardNum) => {
 "Tax"
 \`\`\``
 				)
-				.addField(
-					'Take 3 coins from the Treasury.',
-					'`(It cannot be blocked.)`'
+				.addFields(
+					{
+						name: 'Character Action',
+						value:
+							'Take 3 coins from the Treasury.\n`(It cannot be blocked.)`',
+						inline: false,
+					},
+					{
+						name: 'Counteraction',
+						value:
+							'Claiming the Duke may counteract and block a player attempting to collect foreign aid.\n`The player trying to gain foreign aid receives no coins that turn.`',
+						inline: false,
+					}
 				);
 			break;
 		case infKeys[1]:
@@ -31,9 +41,8 @@ module.exports = (influence, cardNum) => {
 \`\`\``
 				)
 				.addField(
-					`When you are being assassinated, you can claim the Contessa and block the assassination.
-The assassination fails, but the fee paid by the player for the assassin remains spent.`,
-					'`(It cannot be blocked.)`'
+					`Counteraction`,
+					'When you are being assassinated, you can claim the Contessa and block the assassination.\nThe assassination fails, but the fee paid by the player for the assassin remains spent.\n`(It cannot be blocked.)`'
 				);
 			break;
 		case infKeys[2]:
@@ -43,9 +52,17 @@ The assassination fails, but the fee paid by the player for the assassin remains
 [Steal]
 \`\`\``
 				)
-				.addField(
-					'Take 2 coins from another player. If they only have one coin, take only one.',
-					`\`(Can be blocked by the Ambassador \`${serverEmojis.ambassador.code}\` or the Captain \`${serverEmojis.captain.code}\`)\``
+				.addFields(
+					{
+						name: 'Character Action',
+						value: `Take 2 coins from another player. If they only have one coin, take only one.\n\`(Can be blocked by the Ambassador \`${serverEmojis.ambassador.code}\` or the Captain \`${serverEmojis.captain.code}\`)\``,
+						inline: false,
+					},
+					{
+						name: 'Counteraction',
+						value: `The player who is being stolen can block extortion by claiming:\nThe \`Ambassador\`${serverEmojis.ambassador.code}\` \` or the \`Captain\`${serverEmojis.captain.code}\` \`.\n\`The player trying to steal receives no coins that turn.\``,
+						inline: false,
+					}
 				);
 			break;
 		case infKeys[3]:
@@ -67,9 +84,18 @@ Assassinate
 Exchange
 \`\`\``
 				)
-				.addField(
-					`You can Exchange cards with the Court. Take two random cards from the deck and choose which one, if any, to exchange with the cards face-down. Then, return two cards to the deck`,
-					'`(It cannot be blocked.)`'
+				.addFields(
+					{
+						name: 'Character Action',
+						value:
+							'You can Exchange cards with the Court. Take two random cards from the deck and choose which one, if any, to exchange with the cards face-down. Then, return two cards to the deck.\n`(It cannot be blocked.)`',
+						inline: false,
+					},
+					{
+						name: 'Counteraction',
+						value: `The player who is being stolen can block extortion by claiming:\nThe \`Ambassador\`${serverEmojis.ambassador.code}\` \` or the \`Captain\`${serverEmojis.captain.code}\` \`.\n\`The player trying to steal receives no coins that turn.\``,
+						inline: false,
+					}
 				);
 			break;
 		case infKeys[5]:
@@ -81,15 +107,15 @@ Exchange
 				)
 				.addFields(
 					{
-						name:
-							'You can Exchange a card with the Court. Draw 1 card and then return 1 card to the deck.',
-						value: '`(It cannot be blocked.)`',
+						name: 'Character Action 1',
+						value:
+							'You can Exchange a card with the Court. Draw 1 card and then return 1 card to the deck.\n`(It cannot be blocked.)`',
 						inline: true,
 					},
 					{
-						name:
-							'Choose a player; look at one of your cards, force or not the Exchange.',
-						value: '`(It cannot be blocked.)`',
+						name: 'Character Action 2',
+						value:
+							'Choose a player; look at one of your cards, force or not the Exchange.\n`(It cannot be blocked.)`',
 						inline: true,
 					}
 				);

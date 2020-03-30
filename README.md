@@ -36,7 +36,7 @@ All commands begin with the prefix `[` and end with the suffix `]`
 
 All the cards have an incredible design, keeping all the essence of the original game. Each character has a different design that allows easy identification of the most important points. Below are some examples:
 
-<img src="src/assets/images/cap-card.png" style="border-radius: 8px;" />
+<img src="src/assets/images/amb-card.png" style="border-radius: 8px;" />
 <img src="src/assets/images/cont-card.png" style="border-radius: 8px;" />
 
 ## Disclaimer
