@@ -48,7 +48,5 @@ module.exports = async ({ channel }) => {
 	// 				'-Duke (Blocks Foreign Aid): Any player claiming the Duke may counteract and block a player attempting to collect foreign aid.\n\n`The player trying to gain foreign aid receives no coins that turn.`\n\n-Contessa (Blocks Assassination): The player who is being assassinated may claim the Contessa and counteract to block the assassination.\n`The assassination fails but the fee paid by the player for the assassin remains spent.`\n\n-Ambassador/Captain (Blocks Stealing): The player who is being stolen from may claim either the Ambassador or the Captain and counteract to block the steal.\n`The player trying to steal receives no coins that turn.`',
 	// 		}
 	// 	);
-	return channel.send(
-		'https://www.inboardgame.com.br/wp-content/uploads/Coup-Livro-de-Regras-Manual-Mandala-Jogos.pdf'
-	);
+	return channel.send('https://samuelhiroyuki.github.io/coup-discord-bot/');
 };
