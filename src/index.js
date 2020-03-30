@@ -5,7 +5,6 @@ const Discord = require('discord.js');
 const commands = require('./commands');
 const Guild = require('./models/Guild');
 const Channel = require('./models/Channel');
-const pmInfluence = require('./utils/pmInfluence');
 
 const client = new Discord.Client();
 
@@ -43,8 +42,6 @@ For a better gaming experience, you can run the command \`[emojis]\`.
 	}
 
 	if (author.bot) return;
-
-	channel.send(pmInfluence('inquisitor', 1));
 
 	if (content.startsWith('[') && content.endsWith(']')) {
 		const command = commands[content];
