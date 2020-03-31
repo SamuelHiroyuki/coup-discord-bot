@@ -2,6 +2,7 @@ const _ = require('lodash');
 const Channel = require('../models/Channel');
 const pmInfluence = require('../utils/pmInfluence');
 const listBoard = require('../utils/listBoard');
+const { play } = require('../functions/play');
 const courts = require('../assets/json/courts.json');
 
 module.exports = async ({ channel, guild }) => {
@@ -29,47 +30,49 @@ module.exports = async ({ channel, guild }) => {
 	// 	);
 	// }
 
-	let additionalCards = [];
-	if (game.players.length > 6 && game.players.length <= 8) {
-		additionalCards = courts.additionalCards[game.variant];
-	}
+	// let additionalCards = [];
+	// if (game.players.length > 6 && game.players.length <= 8) {
+	// 	additionalCards = courts.additionalCards[game.variant];
+	// }
 
-	if (game.players.length >= 9) {
-		additionalCards = new Array(2)
-			.fill(courts.additionalCards[game.variant])
-			.flat();
-	}
+	// if (game.players.length >= 9) {
+	// 	additionalCards = new Array(2)
+	// 		.fill(courts.additionalCards[game.variant])
+	// 		.flat();
+	// }
 
-	game.treasury = 54 - game.players.length * 2;
-	game.court = _.shuffle([...courts[game.variant], ...additionalCards]);
-	game.players = _.shuffle(game.players);
+	const users = [];
+	// game.treasury = 54 - game.players.length * 2;
+	// game.court = _.shuffle([...courts[game.variant], ...additionalCards]);
+	// game.players = _.shuffle(game.players);
 	game.players.forEach(p => {
-		p.coins = 2;
-		p.card1 = {
-			influence: game.court.splice(
-				Math.random() * game.court.length,
-				1
-			)[0],
-			isEliminated: false,
-		};
-		p.card2 = {
-			influence: game.court.splice(
-				Math.random() * game.court.length,
-				1
-			)[0],
-			isEliminated: false,
-		};
+		// p.coins = 2;
+		// p.card1 = {
+		// 	influence: game.court.splice(
+		// 		Math.random() * game.court.length,
+		// 		1
+		// 	)[0],
+		// 	isEliminated: false,
+		// };
+		// p.card2 = {
+		// 	influence: game.court.splice(
+		// 		Math.random() * game.court.length,
+		// 		1
+		// 	)[0],
+		// 	isEliminated: false,
+		// };
 
 		const user = guild.members.cache.find(
 			u => u.id === p.discord_author.replace(/[^a-zA-Z0-9]/g, '')
 		);
 
 		try {
-			user.send(
-				`Hey ${user}, below are your influences from the match at '${channel.name} (${guild.name})'. Keep calm and get ready!`
-			);
-			user.send(pmInfluence(p.card1.influence, 1));
-			user.send(pmInfluence(p.card2.influence, 2));
+			// user.send(
+			// 	`Hey ${user}, below are your influences from the match at '${channel.name} (${guild.name})'. Keep calm and get ready!`
+			// );
+			// user.send(pmInfluence(p.card1.influence, 1));
+			// user.send(pmInfluence(p.card2.influence, 2));
+			users.push(user);
 		} catch (error) {
 			console.log(error);
 			p.toRemove = true;
@@ -88,9 +91,10 @@ module.exports = async ({ channel, guild }) => {
 	// 	);
 	// }
 
-	const embed = listBoard(game.players);
+	// const embed = listBoard(game.players);
 
 	game.save();
 	channel.send('The match has started! Prepare your lies and cries.');
-	return channel.send(embed);
+	// channel.send(embed);
+	return play(guild, channel, game, users);
 };

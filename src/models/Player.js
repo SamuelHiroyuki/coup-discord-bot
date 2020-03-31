@@ -36,6 +36,11 @@ const PlayerSchema = new mongoose.Schema({
 		required: true,
 		default: false,
 	},
+	playedThisRound: {
+		type: Boolean,
+		required: true,
+		default: false,
+	},
 });
 
 module.exports = PlayerSchema;
