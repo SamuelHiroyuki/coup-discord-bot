@@ -2,7 +2,7 @@ const _ = require('lodash');
 const Channel = require('../models/Channel');
 const pmInfluence = require('../utils/pmInfluence');
 const listBoard = require('../utils/listBoard');
-const { play } = require('../functions/play');
+const play = require('../functions/play');
 const courts = require('../assets/json/courts.json');
 
 module.exports = async ({ channel, guild }) => {
@@ -83,7 +83,7 @@ module.exports = async ({ channel, guild }) => {
 	});
 
 	game.players = game.players.filter(p => !p.toRemove);
-	// game.started = true;
+	game.started = true;
 
 	// if (game.players.length < 3) {
 	// 	return channel.send(
@@ -91,10 +91,10 @@ module.exports = async ({ channel, guild }) => {
 	// 	);
 	// }
 
-	// const embed = listBoard(game.players);
+	const embed = listBoard(game.players, 0);
 
 	game.save();
-	channel.send('The match has started! Prepare your lies and cries.');
-	// channel.send(embed);
-	return play(guild, channel, game, users);
+	channel.send('The match has started!');
+	const board = await channel.send(embed);
+	return play(guild, channel, game, users, board);
 };

@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const serverEmojis = require('../assets/json/serverEmojis.json');
 
-module.exports = players => {
+module.exports = (players, currentIndex = -1) => {
 	return new Discord.MessageEmbed()
 		.setTitle('List of players')
 		.setDescription('----------------------------------------------')
@@ -10,8 +10,10 @@ module.exports = players => {
 				name: 'Play order:',
 				value: `${players
 					.map(
-						g =>
-							`${g.discord_author} (${serverEmojis.coins.code}: ${g.coins})`
+						(g, index) =>
+							`${currentIndex === index ? '•' : ''}${
+								g.discord_author
+							} (${serverEmojis.coins.code}: ${g.coins})`
 					)
 					.join('\n')}\n\u200B`,
 				inline: true,
